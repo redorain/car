@@ -7,10 +7,10 @@ import time
 import sys
 
 class Motor_Module(object):
-    '''µç»ú¿ØÖÆÄ£¿é'''
+    '''ç”µæœºæ§åˆ¶æ¨¡å—'''
     def __init__(self):
-        self.enab_pin=[5,6,13,19] #Ê¹ÄÜ½Å±àºÅ
-        self.inx_pin=[21,22,23,24] #¿ØÖÆ½Å±àºÅ
+        self.enab_pin=[5,6,13,19] #ä½¿èƒ½è„šç¼–å·
+        self.inx_pin=[21,22,23,24] #æ§åˆ¶è„šç¼–å·
 
         self.RightAhead_pin=self.inx_pin[3]
         self.RightBack_pin=self.inx_pin[2]
@@ -20,7 +20,7 @@ class Motor_Module(object):
         self.setup()
 
     def setup(self):
-        '''Òı½Å³õÊ¼»¯'''
+        '''å¼•è„šåˆå§‹åŒ–'''
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
         for pin in self.inx_pin:
