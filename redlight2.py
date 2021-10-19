@@ -1,6 +1,9 @@
 #!/usr/bin/python
 #encoding:utf-8
 
+
+import RPi.GPIO
+
 time_out=5
 Infrared=20
 
