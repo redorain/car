@@ -1,3 +1,7 @@
+#!/usr/bin/python
+#encoding:utf-8
+
+
 import RPi.GPIO as GPIO
 import time
 import sys
