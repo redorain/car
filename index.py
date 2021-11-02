@@ -1,16 +1,14 @@
-#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
 from bottle import get,post,run,request,template
- 
+
 import RPi.GPIO as GPIO
 import time
-import sys 
+import sys
 from run import *
+reload(sys)
+sys.setdefaultencoding('GB2312')
 
- 
-####  ¶¨ÒåmainÖ÷º¯Êý
 def main(status):
-    
+
 
     if status == "front":
         forward(1)
@@ -31,18 +29,18 @@ def main(status):
         right_0(1)
         stop(0.1)
     elif status == "stop":
-        stop(0.1)      
-             
- 
- 
- 
+        stop(0.1)
+
+
+
+
 @get("/")
 def index():
     return template("index")
 @post("/cmd")
 def cmd():
     adss=request.body.read().decode()
-    print("按下了按钮:"+adss)
+    print("press the button:"+adss)
     main(adss)
     return "OK"
 run(host="0.0.0.0")

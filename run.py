@@ -25,7 +25,6 @@ p3.start(0)
 GPIO.setup(IN2_PIN2, GPIO.OUT) 
 p4 = GPIO.PWM(IN2_PIN2, 35)
 p4.start(0)
-time_sleep = 0.5
 rot = 35
 
 # 可以通过更改括号内的数值改变电机转动的速度，数值范围0~100
