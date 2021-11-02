@@ -4,7 +4,7 @@
 import RPi.GPIO as GPIO
 import time
 
-HC_SR501 = 14
+HC_SR501 = 20
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(HC_SR501,GPIO.IN)
