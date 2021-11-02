@@ -8,7 +8,7 @@ import sys
 from run.py import *
 
  
-####  ¶¨ÒåmainÖ÷º¯Êı
+####  Â¶Â¨Ã’Ã¥mainÃ–Ã·ÂºÂ¯ÃŠÃ½
 def main(status):
     
 
@@ -42,7 +42,7 @@ def index():
 @post("/cmd")
 def cmd():
     adss=request.body.read().decode()
-    print("°´ÏÂÁË°´Å¥:"+adss)
+    print("æŒ‰ä¸‹äº†æŒ‰é’®:"+adss)
     main(adss)
     return "OK"
 run(host="0.0.0.0")
