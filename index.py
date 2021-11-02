@@ -5,7 +5,7 @@ from bottle import get,post,run,request,template
 import RPi.GPIO as GPIO
 import time
 import sys 
-from run.py import *
+from run import *
 
  
 ####  ¶¨ÒåmainÖ÷º¯Êý
