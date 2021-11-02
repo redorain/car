@@ -11,21 +11,21 @@ IN1_PIN2 = 26
 IN2_PIN2 = 20
 GPIO.setwarnings(False)
 GPIO.setup(IN1_PIN1, GPIO.OUT)
-p1 = GPIO.PWM(IN1_PIN1, 50)  # 这里的50是频率为50Hz
+p1 = GPIO.PWM(IN1_PIN1, 35)  # 这里的50是频率为50Hz
 p1.start(0)
 
 GPIO.setup(IN2_PIN1, GPIO.OUT) 
-p2 = GPIO.PWM(IN2_PIN1, 50)
+p2 = GPIO.PWM(IN2_PIN1, 35)
 p2.start(0)
 
 GPIO.setup(IN1_PIN2, GPIO.OUT) 
-p3 = GPIO.PWM(IN1_PIN2, 50)
+p3 = GPIO.PWM(IN1_PIN2, 35)
 p3.start(0)
 
 GPIO.setup(IN2_PIN2, GPIO.OUT) 
-p4 = GPIO.PWM(IN2_PIN2, 50)
+p4 = GPIO.PWM(IN2_PIN2, 35)
 p4.start(0)
-
+time_sleep = 0.5
 
 # 可以通过更改括号内的数值改变电机转动的速度，数值范围0~100
 def forward(time_sleep):
@@ -33,7 +33,7 @@ def forward(time_sleep):
     p2.start(0)
     p3.start(50)
     p4.start(0)
-    time.sleep(time_sleep)
+    time.sleep()
 
 
 def reverse(time_sleep):
@@ -83,7 +83,7 @@ def stop(time_sleep):
     p4.start(0)
     time.sleep(time_sleep)
 
-
+'''
 while True:
     cmd = str(input("按以下键后回车（w，前进;s，后退;x，停止）:"))
     direction = cmd
@@ -112,3 +112,4 @@ while True:
         else:
             print("命令无法识别")
             break
+'''
