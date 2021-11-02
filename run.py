@@ -26,26 +26,27 @@ GPIO.setup(IN2_PIN2, GPIO.OUT)
 p4 = GPIO.PWM(IN2_PIN2, 35)
 p4.start(0)
 time_sleep = 0.5
+rot = 35
 
 # 可以通过更改括号内的数值改变电机转动的速度，数值范围0~100
 def forward(time_sleep):
-    p1.start(50)
+    p1.start(rot)
     p2.start(0)
-    p3.start(50)
+    p3.start(rot)
     p4.start(0)
-    time.sleep()
+    time.sleep(time_sleep)
 
 
 def reverse(time_sleep):
     p1.start(0)
-    p2.start(50)
+    p2.start(rot)
     p3.start(0)
-    p4.start(50)
+    p4.start(rot)
     time.sleep(time_sleep)
 
 
 def left(time_sleep):
-    p1.start(50)
+    p1.start(rot)
     p2.start(0)
     p3.start(0)
     p4.start(0)
@@ -55,13 +56,13 @@ def left(time_sleep):
 def right(time_sleep):
     p1.start(0)
     p2.start(0)
-    p3.start(50)
+    p3.start(rot)
     p4.start(0)
     time.sleep(time_sleep)
 
 
 def left_0(time_sleep):
-    p1.start(50)
+    p1.start(rot)
     p2.start(0)
     p3.start(0)
     p4.start(50)
@@ -70,8 +71,8 @@ def left_0(time_sleep):
 
 def right_0(time_sleep):
     p1.start(0)
-    p2.start(50)
-    p3.start(50)
+    p2.start(rot)
+    p3.start(rot)
     p4.start(0)
     time.sleep(time_sleep)
 
