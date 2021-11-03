@@ -64,7 +64,7 @@ def left_0(time_sleep):
     p1.start(rot)
     p2.start(0)
     p3.start(0)
-    p4.start(50)
+    p4.start(rot)
     time.sleep(time_sleep)
 
 
