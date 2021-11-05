@@ -18,112 +18,118 @@
         .btn{
              background: #FF6666;
             }
-        .btn-switch {
-            cursor: pointer;
-            width: 52px;
-            height: 31px;
-            position: relative;
-            border: 1px solid #dfdfdf;
-            background-color: #fdfdfd;
-            box-shadow: #dfdfdf 0 0 0 0 inset;
-            border-radius: 20px;
-            background-clip: content-box;
-            display: inline-block;
-            -webkit-appearance: none;
-            user-select: none;
-            outline: none !important;
-        }
-        .btn-switch.large {
-            width: 70px;
-            height: 30px;
-            border-radius: 30px;
-        }
-        .btn-switch.large:before {
-            content: '';
-            width: 28px;
-            height: 28px;
-            border-radius: 30px;
-        }
-        .btn-switch.large:after {
-            content: 'Turnoff';
-            color: #999;
-            left: 30px;
-            position: absolute;
-            line-height: 30px;
-            font-size: 14px;
-        }
-        .btn-switch.large:checked:after {
-            content: 'Turnon';
-            color: #fff;
-            left: 10px;
-            position: absolute;
-            line-height: 30px;
-            font-size: 14px;
-        }
-        .btn-switch.large:checked:before {
-            left: 40px;
-        }
-        .btn-switch:before {
-            content: '';
-            width: 29px;
-            height: 29px;
-            position: absolute;
-            top: 0px;
-            left: 0;
-            border-radius: 20px;
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-        }
-        .btn-switch:before {
-            content: '';
-            width: 29px;
-            height: 29px;
-            position: absolute;
-            top: 0px;
-            left: 0;
-            border-radius: 20px;
-            background-color: #fff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-        }
-        .btn-switch:checked:before {
-            left: 21px;
-        }
-        .btn-switch.btn-switch-animbg {
-            transition: background-color ease 0.4s;
-        }
-        .btn-switch.btn-switch-animbg:before {
-            transition: left 0.3s;
-        }
-        .btn-switch.btn-switch-animbg:checked {
-            box-shadow: #dfdfdf 0 0 0 0 inset;
-            background-color: #64bd63;
-            transition: border-color 0.4s, background-color ease 0.4s;
-        }
-        .btn-switch.btn-switch-animbg:checked:before {
-            transition: left 0.3s;
-        }
+            .btn-switch {
+    cursor: pointer;
+    width: 52px;
+    height: 31px;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 20px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none !important;
+    }
 
-        .btn-switch.btn-switch-anim {
-            transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
-        }
+    .btn-switch.large {
+    width: 70px;
+    height: 30px;
+    border-radius: 30px;
+    }
 
-        .btn-switch.btn-switch-anim:before {
-            transition: left 0.3s;
-        }
+    .btn-switch.large:before {
+    content: '';
+    width: 28px;
+    height: 28px;
+    border-radius: 30px;
+    }
 
-        .btn-switch.btn-switch-anim:checked {
-            box-shadow: #64bd63 0 0 0 16px inset;
-            background-color: #64bd63;
-            transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
-        }
+    .btn-switch.large:after {
+    content: 'off';
+    color: #999;
+    left: 30px;
+    position: absolute;
+    line-height: 30px;
+    font-size: 14px;
+    }
 
-        .btn-switch.btn-switch-anim:checked:before {
-            transition: left 0.3s;
-        }
+    .btn-switch.large:checked:after {
+    content: 'on';
+    color: #fff;
+    left: 10px;
+    position: absolute;
+    line-height: 30px;
+    font-size: 14px;
+    }
 
-        input[type=checkbox]:checked::before {
-            font: normal normal normal 14px/2 FontAwesome;
-        }
+    .btn-switch.large:checked:before {
+    left: 40px;
+    }
+
+    .btn-switch:before {
+    content: '';
+    width: 29px;
+    height: 29px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn-switch:checked {
+    border-color: #64bd63;
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    }
+
+    .btn-switch:checked:before {
+    left: 21px;
+    }
+
+    .btn-switch.btn-switch-animbg {
+    transition: background-color ease 0.4s;
+    }
+
+    .btn-switch.btn-switch-animbg:before {
+    transition: left 0.3s;
+    }
+
+    .btn-switch.btn-switch-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: #64bd63;
+    transition: border-color 0.4s, background-color ease 0.4s;
+    }
+
+    .btn-switch.btn-switch-animbg:checked:before {
+    transition: left 0.3s;
+    }
+
+    .btn-switch.btn-switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+    }
+
+    .btn-switch.btn-switch-anim:before {
+    transition: left 0.3s;
+    }
+
+    .btn-switch.btn-switch-anim:checked {
+    box-shadow: #64bd63 0 0 0 16px inset;
+    background-color: #64bd63;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+    }
+
+    .btn-switch.btn-switch-anim:checked:before {
+    transition: left 0.3s;
+    }
+
+    input[type=checkbox]:checked::before {
+    font: normal normal normal 14px/2 FontAwesome;
+    }	
     </style>
     <script>
         $(function(){
@@ -131,7 +137,11 @@
                 $.post("/cmd",this.id,function(data,status){});
             });
         });
- 
+         $(function(){
+            $("label").click(function(){
+                $.post("/cmd",this.id,function(data,status){});
+            });
+        });
     </script>
 </head>
 <body>
@@ -154,7 +164,7 @@
         <button id='leftRear' class="btn btn-lg btn-primary glyphicon">left back</button>
         <button id='rightRear' class="btn btn-lg btn-primary glyphicon">right back</button>
         <button id='rightRear' class="btn btn-lg btn-primary glyphicon">QR code</button>
-        <label><input class="btn-switch large" type="checkbox" value="" checked=""></label>
+        <label for="yuyin"><input class="btn-switch large" type="checkbox" value="" checked=""></label>
     </div>
 </div>
  
