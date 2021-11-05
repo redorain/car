@@ -6,12 +6,27 @@ import sys
 import random
 from run import *
 from csb import *
-reload(sys)
+from yuyin import *
 sys.setdefaultencoding('GB2312')
 
+state = 3
+Yuyin = 0
+
 def main(status):
-
-
+    if status == "yuyinturnon":
+        os.system('espeak -vzh "%s"' % "¿ªÆô")
+        Yuyin = 1
+    if status == "yuyinturnoff":
+        os.system('espeak -vzh "%s"' % "¹Ø±Õ")
+        Yuyin = 0
+    if status == "fly":
+        state = 1
+    if status == "remember":
+        state = 2
+    if status == "control":
+        state = 3
+    while Yuyin:
+        yuyinwork()
     if status == "front":
         forward(1)
 #        stop(0.1)
@@ -33,7 +48,8 @@ def main(status):
     elif status == "stop":
         stop(0.1)
 
-while True:
+
+def avoid():
     distance = Measure()
     cnt = 0
     last = random.choice([0,1])
@@ -47,12 +63,9 @@ while True:
         if cnt > 6:
             break
         cnt += 1
-    if cnt <= 6
-        forwad(1)
+    if cnt <= 6:
+        forward(1)
     time.sleep(2)
-
-def remember():
-    
 
 
 @get("/")

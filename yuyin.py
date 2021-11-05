@@ -9,28 +9,39 @@ import yuyinshibie
 tok = yuyinshibie.get_access_token()
 
 switch = True
+
+def yuyinwork():
+        os.system('sudo arecord -D "plughw:1" -f S16_LE -r 16000 -d 10 /home/pi/Desktop/voice.wav')
+        time.sleep(10)
+        info = yuyinshibie.asr_main("/home/pi/Desktop/voice.wav", tok)        
+        tex = Turling.Tuling(info)
+        url = yuyinhecheng.yuyinhecheng_api(tok, tex)
+        os.system('espeak -vzh "%s"' % tex)
+        time.sleep(0.5)
+
+'''
 while switch:
     os.system('sudo arecord -D "plughw:2" -f S16_LE -r 16000 -d 3 /home/pi/Desktop/voice.wav')
     time.sleep(0.5)
     info = yuyinshibie.asr_main("/home/pi/Desktop/voice.wav", tok)
-    if 'å…³é—­'.encode("utf-8") in info:
+    if '¹Ø±Õ'.encode("utf-8") in info:
         while True:
             os.system('sudo arecord -D "plughw:1" -f S16_LE -r 16000 -d 10 /home/pi/Desktop/voice.wav')
             time.sleep(10)
 
             info = yuyinshibie.asr_main("/home/pi/Desktop/voice.wav", tok)
-            if 'å¼€å¯'.encode("utf-8") in info:
+            if '¿ªÆô'.encode("utf-8") in info:
                 break
 
-        url = "å¼€å¯"
+        url = "¿ªÆô"
         os.system('espeak -vzh "%s"' % url)
 
-    elif 'æš‚åœ'.encode("utf-8") in info:
-        url = "æš‚åœ"
+    elif 'ÔİÍ£'.encode("utf-8") in info:
+        url = "ÔİÍ£"
         os.system('espeak -vzh"%s"' % url)
         time.sleep(10)
 
-        url = "ç»“æŸ"
+        url = "½áÊø"
         os.system('espeak -vzh "%s"' % url)
         continue
     else:
@@ -38,3 +49,4 @@ while switch:
         url = yuyinhecheng.yuyinhecheng_api(tok, tex)
         os.system('espeak -vzh "%s"' % tex)
         time.sleep(0.5)
+'''
