@@ -6,11 +6,13 @@ import RPi.GPIO
 import time
 
 time_out=1
-Infrared=20
+Infrared=5
 
 RPi.GPIO.setmode(RPi.GPIO.BCM)
 RPi.GPIO.setup(Infrared,RPi.GPIO.IN)
 
+
+"""
 try:
     while True:
 		if(RPi.GPIO.input(Infrared)==True):
@@ -22,4 +24,4 @@ try:
 except keyboardInterrupt:
 	pass
 RPi.GPIO.cleanup()
-
+"""

@@ -4,6 +4,7 @@
 import time
 import RPi.GPIO
 from csb import *
+from redlight2 import *
 
 GPIO.setmode(GPIO.BCM)
 IN1_PIN1 = 19
@@ -88,41 +89,52 @@ def avoid():
     distance = Measure()
     cnt = 0
     last = random.choice([0,1])
-    while distance < 30 :
+    while distance < 30 or RPi.GPIO.input(5)==True:
         stop(0.1)
         if last == 0:
             left_0(0.20)
+            stop(0.1)
         else:
             right_0(0.20)
+            stop(0.1)
         distance = Measure()
         if cnt > 6:
             break
         cnt += 1
     if cnt <= 6:
         forward(1)
+        stop(0.1)
     time.sleep(2)
 
 def fly():
     for i in range(0, 5):
         forward(1)
-        avoid()
+        stop(0.1)
+#        avoid()
     left(1)
-    avoid()
+    stop(0.1)
+ #   avoid()
     for i in range(0, 3):
         forward(1)
-        avoid()
+        stop(0.1)
+#        avoid()
     left(1)
-    avoid()
+    stop(0.1)
+#    avoid()
     for i in range(0, 5):
         forward(1)
-        avoid()
+        stop(0.1)
+#        avoid()
     right(1)
-    avoid()
+    stop(0.1)
+#    avoid()
     for i in range(0, 3):
         forward(1)
-        avoid()
+        stop(0.1)
+#        avoid()
     right(1)
-    avoid()
+    stop(0.1)
+#    avoid()
 
 
 def run_rem():

@@ -1,5 +1,6 @@
 from bottle import get, post, run, request, template
 
+
 import RPi.GPIO as GPIO
 import time
 import sys
@@ -15,9 +16,6 @@ now = 0
 yuyin = 0
 press = []
 
-while now == 1:
-    fly()
-
 
 def main(status):
     global yuyin
@@ -25,14 +23,15 @@ def main(status):
     global press
     if status == "yuyin":
         if yuyin == 0:
-            os.system('espeak -vzh "%s"' % "on")
+            #os.system('espeak -vzh "%s"' % "on")
             print("open")
             yuyin = 1
         else:
-            os.system('espeak -vzh "%s"' % "off")
+            #os.system('espeak -vzh "%s"' % "off")
             print("close")
             yuyin = 0
     elif status == "fly":
+        fly()
         now = 1
     elif status == "remember":
         now = 2
@@ -42,39 +41,49 @@ def main(status):
         run_rem()
     elif status == "clc_rem":
         clc_rem()
+    elif status() == "green":
+        os.system('vlc --audio green.m4a')
+    elif status() == "chushi":
+        os.system('vlc --audio chushi.m4a')
     elif status == "front":
         if now == 3:
             forward(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
-    #        stop(0.1)
+#        stop(0.1)
     elif status == "leftFront":
         if now == 3:
             left(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
     #        stop(0.1)
     elif status == "rightFront":
         if now == 3:
             right(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
     #        stop(0.1)
     elif status == "rear":
         if now == 3:
             reverse(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
     #        stop(0.1)
     elif status == "leftRear":
         if now == 3:
             left_0(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
     #        stop(0.1)
     elif status == "rightRear":
         if now == 3:
             right_0(1)
+            stop(0.1)
         if now == 2:
             press.append(status)
     #        stop(0.1)
