@@ -8,33 +8,30 @@ from run import *
 from csb import *
 from yuyin import *
 
-sys.setdefaultencoding('GB2312')
+sys.setdefaultencoding('utf-8')
 
 state = 3
 now = 0
+yuyin = 0
 press = []
 
 while now == 1:
     fly()
 
-"""
-while Yuyin == 1:
-    yuyinwork()
-""" 
 
 def main(status):
-    global Yuyin
+    global yuyin
     global now
     global press
     if status == "yuyin":
-        if Yuyin == 0:
-            # os.system('espeak -vzh "%s"' % "open")
+        if yuyin == 0:
+            os.system('espeak -vzh "%s"' % "on")
             print("open")
-            Yuyin = 1
+            yuyin = 1
         else:
-            # os.system('espeak -vzh "%s"' % "of")
+            os.system('espeak -vzh "%s"' % "off")
             print("close")
-            Yuyin = 0
+            yuyin = 0
     elif status == "fly":
         now = 1
     elif status == "remember":
@@ -95,9 +92,16 @@ def index():
 
 @post("/cmd")
 def cmd():
+    global yuyin
     adss = request.body.read().decode()
     print("press the button:" + adss)
     main(adss)
+    while yuyin == 1:
+        yuyinwork()
+        adss = request.body.read().decode()
+        if adss == "yuyin":
+            yuyin = 0
+            os.system('espeak -vzh "%s"' % "off")
     return "OK"
 
 

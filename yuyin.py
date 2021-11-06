@@ -11,14 +11,15 @@ tok = yuyinshibie.get_access_token()
 switch = True
 
 def yuyinwork():
-        os.system('sudo arecord -D "plughw:1" -f S16_LE -r 16000 -d 10 /home/pi/Desktop/voice.wav')
-        time.sleep(10)
+        os.system('sudo arecord -D "plughw:2" -f S16_LE -r 16000 -d 3 /home/pi/Desktop/voice.wav')
         info = yuyinshibie.asr_main("/home/pi/Desktop/voice.wav", tok)        
         tex = Turling.Tuling(info)
         url = yuyinhecheng.yuyinhecheng_api(tok, tex)
         os.system('espeak -vzh "%s"' % tex)
-        time.sleep(0.5)
+        time.sleep(2)
 
+#while True:
+#    yuyinwork()
 '''
 while switch:
     os.system('sudo arecord -D "plughw:2" -f S16_LE -r 16000 -d 3 /home/pi/Desktop/voice.wav')

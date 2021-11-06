@@ -108,17 +108,17 @@ def fly():
         avoid()
     left(1)
     avoid()
-    for i in range(0, 3)
+    for i in range(0, 3):
         forward(1)
         avoid()
     left(1)
     avoid()
-    for i in range(0, 5)
+    for i in range(0, 5):
         forward(1)
         avoid()
     right(1)
     avoid()
-    for i in range(0, 3)
+    for i in range(0, 3):
         forward(1)
         avoid()
     right(1)
@@ -127,7 +127,7 @@ def fly():
 
 def run_rem():
     global press
-    for i in range(0, num(press)):
+    for i in range(0, str(press)):
         if press[i] == "front":
             front(1)
         elif press[i] == "leftFront":
