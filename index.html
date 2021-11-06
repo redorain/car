@@ -140,7 +140,7 @@
         });
          $(function(){
             $("label").click(function(){
-                $.post("/cmd",this.type,function(data,status){});
+                $.post("/cmd",this.id,function(data,status){});
             });
         });
 
@@ -168,7 +168,7 @@
         <button id='rightRear' class="btn btn-lg btn-primary glyphicon">right back</button>
         <button id='rightRear' class="btn btn-lg btn-primary glyphicon">QR code</button>
     </div>
-    <label for="yuyin"><input class="btn-switch large" type="checkbox" value="" checked=""></label>
+    <label id="yuyin"><input class="btn-switch large" type="checkbox" value="" checked=""></label>
 </div>
 
 <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
