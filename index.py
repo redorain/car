@@ -4,6 +4,7 @@ from bottle import get, post, run, request, template
 import RPi.GPIO as GPIO
 import time
 import sys
+import os
 import random
 from run import *
 from csb import *
@@ -41,10 +42,12 @@ def main(status):
         run_rem()
     elif status == "clc_rem":
         clc_rem()
-    elif status() == "green":
-        os.system('vlc --audio green.m4a')
-    elif status() == "chushi":
-        os.system('vlc --audio chushi.m4a')
+    elif status == "green":
+        os.system("vlc --audio green.m4a")
+        os.system("vlc --global-key-quit")
+    elif status == "chushi":
+        os.system("vlc --audio chushi.m4a")
+        os.system("vlc --global-key-quit")
     elif status == "front":
         if now == 3:
             forward(1)
