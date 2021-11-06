@@ -13,11 +13,13 @@ state = 3
 Yuyin = 0
 
 def main(status):
-    if status == "yuyinturnon":
-        os.system('espeak -vzh "%s"' % "¿ªÆô")
+    if status == "yuyin":
+        #os.system('espeak -vzh "%s"' % "open")
+        print("open")
         Yuyin = 1
-    if status == "yuyinturnoff":
-        os.system('espeak -vzh "%s"' % "¹Ø±Õ")
+    if status == "yuyin":
+        #os.system('espeak -vzh "%s"' % "of")
+        print("close")
         Yuyin = 0
     if status == "fly":
         state = 1
@@ -25,8 +27,8 @@ def main(status):
         state = 2
     if status == "control":
         state = 3
-    while Yuyin:
-        yuyinwork()
+#    while Yuyin:
+#        yuyinwork()
     if status == "front":
         forward(1)
 #        stop(0.1)
@@ -48,7 +50,7 @@ def main(status):
     elif status == "stop":
         stop(0.1)
 
-
+'''
 def avoid():
     distance = Measure()
     cnt = 0
@@ -66,7 +68,7 @@ def avoid():
     if cnt <= 6:
         forward(1)
     time.sleep(2)
-
+'''
 
 @get("/")
 def index():

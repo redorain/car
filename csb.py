@@ -25,10 +25,11 @@ def Measure():
 
     distance=round((end-start)*340/2*100,2)
     print("distance:{0}cm,{1}m".format(distance,distance/100))
-    
+
+"""
 while True:
     Measure()
     time.sleep(2)
     
 GPIO.cleanup();
-
+"""
