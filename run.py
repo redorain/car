@@ -2,7 +2,8 @@
 
 
 import time
-import RPi.GPIO as GPIO
+import RPi.GPIO
+from csb import *
 
 GPIO.setmode(GPIO.BCM)
 IN1_PIN1 = 19
@@ -83,6 +84,70 @@ def stop(time_sleep):
     p4.start(0)
     time.sleep(time_sleep)
 
+def avoid():
+    distance = Measure()
+    cnt = 0
+    last = random.choice([0,1])
+    while distance < 30 :
+        stop(0.1)
+        if last == 0:
+            left_0(0.20)
+        else:
+            right_0(0.20)
+        distance = Measure()
+        if cnt > 6:
+            break
+        cnt += 1
+    if cnt <= 6:
+        forward(1)
+    time.sleep(2)
+
+def fly():
+    for i in range(0, 5):
+        forward(1)
+        avoid()
+    left(1)
+    avoid()
+    for i in range(0, 3)
+        forward(1)
+        avoid()
+    left(1)
+    avoid()
+    for i in range(0, 5)
+        forward(1)
+        avoid()
+    right(1)
+    avoid()
+    for i in range(0, 3)
+        forward(1)
+        avoid()
+    right(1)
+    avoid()
+
+
+def run_rem():
+    global press
+    for i in range(0, num(press)):
+        if press[i] == "front":
+            front(1)
+        elif press[i] == "leftFront":
+            left(1)
+        elif press[i] == "rightFront":
+            right(1)
+        elif press[i] == "rear":
+            reverse(1)
+        elif press[i] == "leftRear":
+            left_0(1)
+        elif press[i] == "rightRear":
+            right_0(1)
+        elif press[i] == "stop":
+            stop(1)
+    press = []
+
+
+def clc_rem():
+    global press
+    press = []
 '''
 while True:
     cmd = str(input("按以下键后回车（w，前进;s，后退;x，停止）:"))

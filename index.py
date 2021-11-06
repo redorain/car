@@ -11,11 +11,21 @@ from yuyin import *
 sys.setdefaultencoding('GB2312')
 
 state = 3
-Yuyin = 0
+now = 0
+press = []
 
+while now == 1:
+    fly()
+
+"""
+while Yuyin == 1:
+    yuyinwork()
+""" 
 
 def main(status):
     global Yuyin
+    global now
+    global press
     if status == "yuyin":
         if Yuyin == 0:
             # os.system('espeak -vzh "%s"' % "open")
@@ -25,55 +35,57 @@ def main(status):
             # os.system('espeak -vzh "%s"' % "of")
             print("close")
             Yuyin = 0
-    if status == "fly":
-        state = 1
-    if status == "remember":
-        state = 2
-    if status == "control":
-        state = 3
-    #    while Yuyin:
-    #        yuyinwork()
-    if status == "front":
-        forward(1)
+    elif status == "fly":
+        now = 1
+    elif status == "remember":
+        now = 2
+    elif status == "control":
+        now = 3
+    elif status == "run_rem":
+        run_rem()
+    elif status == "clc_rem":
+        clc_rem()
+    elif status == "front":
+        if now == 3:
+            forward(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "leftFront":
-        left(1)
+        if now == 3:
+            left(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "rightFront":
-        right(1)
+        if now == 3:
+            right(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "rear":
-        reverse(1)
+        if now == 3:
+            reverse(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "leftRear":
-        left_0(1)
+        if now == 3:
+            left_0(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "rightRear":
-        right_0(1)
+        if now == 3:
+            right_0(1)
+        if now == 2:
+            press.append(status)
     #        stop(0.1)
     elif status == "stop":
-        stop(0.1)
-
-
-'''
-def avoid():
-    distance = Measure()
-    cnt = 0
-    last = random.choice([0,1])
-    while distance < 30 :        
-        stop(0.1)
-        if last == 0:
-            left_0(0.20)            
-        else:
-            right_0(0.20)
-        distance = Measure()
-        if cnt > 6:
-            break
-        cnt += 1
-    if cnt <= 6:
-        forward(1)
-    time.sleep(2)
-'''
+        if now == 3:
+            stop(1)
+        if now == 2:
+            press.append(status)
 
 
 @get("/")
